@@ -55,3 +55,23 @@ exports.addPlayer = (req, res) => {
         });
     });
 }
+
+exports.editPlayer = (req, res) => {
+let playerId = req.params.id;
+let firstname = req.body.firstname;
+let lastname = req.body.lastname;
+let position = req.body.position;
+let number = req.body.number;
+
+
+         let query = "UPDATE `players` SET `firstname` = '" + firstname + "', `lastname` = '" + lastname + "', `position` = '" + position + "', `number` = '" + number + "' WHERE `players`.`id` = '" + playerId + "'";
+
+          db.query(query, (err, result) => {
+              if (err) {
+                  return res.status(500).send(err);
+              }
+              res.redirect('/');
+          });
+     
+  
+}

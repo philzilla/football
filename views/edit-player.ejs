@@ -63,6 +63,9 @@
                                                 </div>
                                                 <div class="card-block">
                                                     <h4 class="sub-title">Basic Inputs</h4>
+
+                                                    <% if (player) { %>
+
                                                     <form action="" method="post" enctype="multipart/form-data">
                                                         
                                                         <div class="form-group row">
@@ -94,7 +97,7 @@
                                                         <div class="form-group row">
                                                             <label class="col-sm-2 col-form-label">Numéro actuel : <%= player.number %>,Numéro</label>
                                                             <div class="col-sm-10">
-                                                                <input name="number" type="text" class="form-control"
+                                                                <input name="number" type="text" class="form-control" value="<%= player.number %>"
                                                                     placeholder="MAximum 2"
                                                                     maxlength="2">
                                                             </div>
@@ -104,13 +107,15 @@
                                                             <label class="col-sm-2 col-form-label">Envoyer une photo</label>
                                                             <img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt="">
                                                             <div class="col-sm-10">
-                                                                <input name="image" type="file" class="form-control">
+                                                                <input value="<%= player.image %>" name="image" type="file" class="form-control">
                                                             </div>
                                                         </div>
                                                         <button type="submit" >Mettre à jour</button>
 
                                                     </form>
-
+                                                    <% } else { %>
+                                                      <p class="text-center">Pas de joueur.<a href="/players/add">Ajouter un joueur.</a></p>
+                                                  <% } %>
 
                                                 </div>
                                             </div>
