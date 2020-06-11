@@ -5,8 +5,6 @@ exports.addPlayerPage = (req, res) => {
   });
 };
 
-
-
 exports.addPlayer = (req, res) => {
   if (!req.files) {
       return res.status(400).send("Pas de fichier envoyé");
@@ -43,3 +41,17 @@ exports.addPlayer = (req, res) => {
         });
     }
   }
+
+  exports.editPlayerPage = (req, res) => {
+    let playerId = req.params.id;
+    let query = "SELECT * FROM `players` WHERE id = '" + playerId + "' ";
+    db.query(query, (err, result) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+        res.render('edit-player.ejs', {
+            title: "Editer un joueur",
+            player: result[0],
+        });
+    });
+}
