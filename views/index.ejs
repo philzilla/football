@@ -70,6 +70,9 @@
                                                   </div>
                                               </div>
                                               <div class="card-block p-b-0">
+
+                                                <% if (players.length > 0) { %>
+
                                                   <div class="table-responsive">
                                                       <table class="table table-hover m-b-0">
                                                           <thead>
@@ -84,33 +87,26 @@
                                                               </tr>
                                                           </thead>
                                                           <tbody>
+                                                            <% players.forEach((player, index) => { %>
                                                               <tr>
-                                                                  <td>Sofa</td>
-                                                                  <td>#PHD001</td>
-                                                                  <td><a href="https://colorlib.com/cdn-cgi/l/email-protection"
-                                                                          class="__cf_email__"
-                                                                          data-cfemail="29484b4a694e44484045074a4644">[email&#160;protected]</a>
-                                                                  </td>
-                                                                  <td><label class="label label-danger">Out
-                                                                          Stock</label></td>
-                                                                  <td>
-                                                                      <a href="#!"><i
-                                                                              class="fa fa-star f-12 text-c-yellow"></i></a>
-                                                                      <a href="#!"><i
-                                                                              class="fa fa-star f-12 text-c-yellow"></i></a>
-                                                                      <a href="#!"><i
-                                                                              class="fa fa-star f-12 text-c-yellow"></i></a>
-                                                                      <a href="#!"><i
-                                                                              class="fa fa-star f-12 text-default"></i></a>
-                                                                      <a href="#!"><i
-                                                                              class="fa fa-star f-12 text-default"></i></a>
-                                                                  </td>
+                                                                  <td><%= player.id %></td>
+                                                                  <td><img src="/assets/img/<%= player.image %>" class="img-table p-absolute d-block text-center" alt=""></td>
+                                                                  <td><%= player.lastname %></td>
+                                                                  <td><%= player.firstname %></td>
+                                                                  <td><%= player.position %></td>
+                                                                  <td><%= player.number %></td>
+                                                                 
                                                               </tr>
-                                                             
+                                                              <% }) %>
                                                           </tbody>
                                                       </table>
                                                   </div>
                                               </div>
+                                              <% } else { %>
+
+                                                <p>Il n'ya pas de joueurs, <a href="/players/add">Ajouter un joueur </a></p>
+
+                                                <% } %>
                                           </div>
                                       </div>
 
