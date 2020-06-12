@@ -83,6 +83,7 @@
                                                                   <th>Prénom</th>
                                                                   <th>Position</th>
                                                                   <th>Numéro</th>
+                                                                  <th>Club</th>
                                                                   <th>Action</th>
                                                               </tr>
                                                           </thead>
@@ -95,6 +96,7 @@
                                                                   <td><%= player.firstname %></td>
                                                                   <td><%= player.position %></td>
                                                                   <td><%= player.number %></td>
+                                                                  <td><%= player.name %></td>
                                                                   <td>
                                                                     <a href="/players/edit/<%= player.id %>">Editer</a>
                                                                     <a href="/players/delete/<%= player.id %>">Supprimer</a>
