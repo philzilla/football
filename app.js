@@ -31,18 +31,20 @@ global.db = db;
 
 // Controller
 const playersRoutes = require('./routes/player.route');
+const clubsRoutes = require('./routes/club.route');
 const homeRoutes = require('./routes/home');
 
 // Route
 app.use('/', homeRoutes);
 app.use('/players', playersRoutes);
-/*app.get('*', function(req, res, next){
+app.use('/club', clubsRoutes);
+app.get('*', function(req, res, next){
     res.status(404);
     res.render('404.ejs', {
         title: "Cette page n'existe pas.",
     });
 });
-*/
+
 
 // Listen
 app.listen(port, () => {

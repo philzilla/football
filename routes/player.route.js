@@ -10,6 +10,6 @@ router.get('/edit/:id', playerController.editPlayerPage);
 // Post
 router.post('/add', playerController.addPlayer);
 router.post('/edit/:id', playerController.editPlayer);
-//router.get('/delete/:id', playerController.deletePlayer);
+router.get('/delete/:id', playerController.deletePlayer);
 
 module.exports = router;

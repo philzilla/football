@@ -95,7 +95,11 @@
                                                                   <td><%= player.firstname %></td>
                                                                   <td><%= player.position %></td>
                                                                   <td><%= player.number %></td>
-                                                                  <td><a href="/players/edit/<%= player.id %>">Editer</a></td>
+                                                                  <td>
+                                                                    <a href="/players/edit/<%= player.id %>">Editer</a>
+                                                                    <a href="/players/delete/<%= player.id %>">Supprimer</a>
+                                                                  
+                                                                  </td>
                                                                  
                                                               </tr>
                                                               <% }) %>
