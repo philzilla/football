@@ -31,14 +31,15 @@ exports.addPlayer = (req, res) => {
   let image = uploadedFile.name;
   let fileExtension = uploadedFile.mimetype.split('/')[1];
   image = firstname + '-' + lastname + '.' + fileExtension;
+  let club = req.body.club;
   
       if (uploadedFile.mimetype === 'image/png' || uploadedFile.mimetype === 'image/jpeg' || uploadedFile.mimetype === 'image/gif') {
         uploadedFile.mv(`public/assets/img/${image}`, (err ) => {
             if (err) {
                 return res.status(500).send(err);
             }
-            let query = "INSERT INTO `players` (firstname, lastname, position, number, image) VALUES ('" +
-                firstname + "', '" + lastname + "', '" + position + "', '" + number + "', '" + image + "')";
+            let query = "INSERT INTO `players` (firstname, lastname, position, number, image, club_id) VALUES ('" +
+                firstname + "', '" + lastname + "', '" + position + "', '" + number + "', '" + image + "', '" + club + "')";
             db.query(query, (err, result) => {
                 if (err) {
                     return res.status(500).send(err);
