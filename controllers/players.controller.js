@@ -1,15 +1,27 @@
 const fs = require('fs');
 
 exports.addPlayerPage = (req, res) => {
-  res.render('add-player.ejs', {
-      title: "Ajouter un joueur",
-  });
+
+    let query = "SELECT * FROM `club` ORDER BY name ASC"; 
+
+    db.query(query, (err, result) => {
+        if (err) {
+            res.redirect('/');
+        }
+
+        res.render('add-player.ejs', {
+            title: "Ajouter un joueur",
+            clubs: result
+        });
+    });
 };
 
 exports.addPlayer = (req, res) => {
   if (!req.files) {
       return res.status(400).send("Pas de fichier envoyé");
   }
+
+
 
   let firstname = req.body.firstname;
   let lastname = req.body.lastname;
