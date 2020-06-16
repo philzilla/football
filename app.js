@@ -20,7 +20,8 @@ const db = mysql.createConnection ({
     host: 'localhost',
     user: 'root',
     password: 'bunthear',
-    database: 'soccer'
+    database: 'soccer',
+    multipleStatements: true
 });
 
 db.connect((err) => {
@@ -38,7 +39,7 @@ const homeRoutes = require('./routes/home');
 const adminRoutes = require('./routes/admin.route');
 
 
-// Route
+// Front
 app.use('/', homeRoutes);
 
 // Admin

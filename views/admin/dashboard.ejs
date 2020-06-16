@@ -882,87 +882,59 @@
 							<div class="col-12">
 								<div class="card">
 									<div class="card-header ">
-										<h3 class="card-title ">Projects</h3>
+										<h3 class="card-title ">Liste des joueurs</h3>
 										<div class="card-options">
 											<button id="add__new__list" type="button" class="btn btn-sm btn-primary " data-toggle="modal" data-target=".bd-example-modal-lg"><i class="fa fa-plus"></i> Add a new Project</button>
 										</div>
 									</div>
 									<div class="table-responsive">
+
+										<% if (players.length > 0) { %>
+
 										<table class="table card-table table-striped table-vcenter table-outline table-bordered text-nowrap ">
 											<thead>
 												<tr>
 													<th scope="col" class="border-top-0">ID</th>
-													<th scope="col" class="border-top-0">Project Name</th>
-													<th scope="col" class="border-top-0">Backend</th>
-													<th scope="col" class="border-top-0">Deadline</th>
-													<th scope="col" class="border-top-0">Team Members</th>
-													<th scope="col" class="border-top-0">Edit Project Details </th>
-													<th scope="col" class="border-top-0">list info</th>
+													<th scope="col" class="border-top-0">Prénom</th>
+													<th scope="col" class="border-top-0">Nom</th>
+													<th scope="col" class="border-top-0">Position</th>
+													<th scope="col" class="border-top-0">Numéro</th>
+													<th scope="col" class="border-top-0">Image</th>
+													<th scope="col" class="border-top-0">Club</th>
+													<th scope="col" class="border-top-0">Action</th>
 												</tr>
 											</thead>
 											<tbody>
+												<% players.forEach((player, index) => { %>
+
 												<tr>
-													<th scope="row">1</th>
-													<td>At vero eos et accusamus et iusto odio</td>
-													<td>PHP</td>
-													<td>15/11/2018</td>
-													<td>15 Members</td>
+													<th scope="row"><%= player.id %></th>
+													<td><%= player.firstname %></td>
+													<td><%= player.lastname %></td>
+													<td><%= player.position %></td>
+													<td><%= player.number %></td>
+													<td><img src="/assets/img/<%= player.image %>" class="img-table p-absolute d-block text-center" alt=""></td>
+													<td><%= player.club_id %></td>
+											
+
+
 													<td>
 														<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
 														<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
 													</td>
-													<td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
+
 												</tr>
-												<tr>
-													<th scope="row">2</th>
-													<td>voluptatum deleniti atque corrupti quos</td>
-													<td>Angular js</td>
-													<td>25/11/2018</td>
-													<td>12 Members</td>
-													<td>
-														<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-														<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-													</td>
-													<td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-												</tr>
-												<tr>
-													<th scope="row">3</th>
-													<td>dignissimos ducimus qui blanditiis praesentium </td>
-													<td>Java</td>
-													<td>5/12/2018</td>
-													<td>20 Members</td>
-													<td>
-														<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-														<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-													</td>
-													<td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-												</tr>
-												<tr>
-													<th scope="row">4</th>
-													<td>deleniti atque corrupti quos dolores  </td>
-													<td>Phython</td>
-													<td>14/12/2018</td>
-													<td>10 Members</td>
-													<td>
-														<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-														<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-													</td>
-													<td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-												</tr>
-												<tr>
-													<th scope="row">5</th>
-													<td>et quas molestias excepturi sint occaecati</td>
-													<td>Phython</td>
-													<td>4/12/2018</td>
-													<td>17 Members</td>
-													<td>
-														<a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-														<a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-													</td>
-													<td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-												</tr>
+
+												<% }) %>
+
 											</tbody>
 										</table>
+
+										<% } else { %>
+
+											<p>Il n'ya pas de joueurs, <a href="#">Ajouter un joueur </a></p>
+
+											<% } %>
 									</div>
 								</div>
 							</div>
@@ -973,7 +945,7 @@
 								<div class="card">
 									<div class="card-header custom-header">
 										<div>
-											<h3 class="card-title">Products Details</h3>
+											<h3 class="card-title">Liste des utilisateurs</h3>
 											<h6 class="card-subtitle">Over of this week</h6>
 										</div>
 										<div class="card-options">
@@ -990,75 +962,42 @@
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
+
+										<% if (users.length > 0) { %>
+
+
 											<table class="table table-bordered text-nowrap mb-0">
 												<thead>
 													<tr>
-														<th>Product ID</th>
-														<th>Product</th>
-														<th>Product Cost</th>
-														<th>Payment Mode</th>
+														<th>ID</th>
+														<th>Prénom</th>
+														<th>Nom</th>
+														<th>Email</th>
 														<th>Status</th>
 													</tr>
 												</thead>
 												<tbody>
+
+													<% users.forEach((user, index) => { %>
+
 													<tr>
-														<td><a href="#">PRO12345</a></td>
-														<td>Mi LED Smart TV 4A 80</td>
-														<td>$14,500</td>
-														<td>Online Payment</td>
+														<td><%= user.id %></td>
+														<td><%= user.firstname %></td>
+														<td><%= user.lastname %></td>
+														<td><%= user.email %></td>
 														<td><span class="badge badge-success">Available</span></td>
 													</tr>
-													<tr>
-														<td><a href="#">PRO8765</a></td>
-														<td>Thomson R9 122cm (48 inch) Full HD LED TV </td>
-														<td>$30,000</td>
-														<td>Cash on delivered</td>
-														<td><span class="badge badge-primary">Available</span></td>
-													</tr>
-													<tr>
-														<td><a href="#">PRO54321</a></td>
-														<td>Vu 80cm (32 inch) HD Ready LED TV</td>
-														<td>$13,200</td>
-														<td>Online Payment</td>
-														<td><span class="badge badge-warning">Limited</span></td>
-													</tr>
-													<tr>
-														<td><a href="#">PRO97654</a></td>
-														<td>Micromax 81cm (32 inch) HD Ready LED TV</td>
-														<td>$15,100</td>
-														<td>Cash on delivered</td>
-														<td><span class="badge badge-danger">No stock</span></td>
-													</tr>
-													<tr>
-														<td><a href="#">PRO4532</a></td>
-														<td>HP 200 Mouse &amp; Wireless Laptop Keyboard </td>
-														<td>$5,987</td>
-														<td>Online Payment</td>
-														<td><span class="badge badge-danger">No stock</span></td>
-													</tr>
-													<tr>
-														<td><a href="#">PRO6789</a></td>
-														<td>Digisol DG-HR3400 Router </td>
-														<td>$11,987</td>
-														<td>Cash on delivered</td>
-														<td><span class="badge badge-success">Available</span></td>
-													</tr>
-													<tr>
-														<td><a href="#">PRO4567</a></td>
-														<td>Dell WM118 Wireless Optical Mouse</td>
-														<td>$4,700</td>
-														<td>Online Payment</td>
-														<td><span class="badge badge-secondary">Available</span></td>
-													</tr>
-													<tr>
-														<td><a href="#">PRO32156</a></td>
-														<td>Dell 16 inch Laptop Backpack </td>
-														<td>$678</td>
-														<td>Cash On delivered</td>
-														<td><span class="badge badge-cyan">Limited</span></td>
-													</tr>
+												
+													<% }) %>
+
 												</tbody>
 											</table>
+
+											<% } else { %>
+
+												<p>Il n'ya pas de joueurs, <a href="/players/add">Ajouter un joueur </a></p>
+
+												<% } %>
 										</div>
 									</div>
 								</div>
