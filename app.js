@@ -34,8 +34,16 @@ const playersRoutes = require('./routes/player.route');
 const clubsRoutes = require('./routes/club.route');
 const homeRoutes = require('./routes/home');
 
+// Admin
+const adminRoutes = require('./routes/admin.route');
+
+
 // Route
 app.use('/', homeRoutes);
+
+// Admin
+app.use('/admin',  adminRoutes);
+
 app.use('/players', playersRoutes);
 app.use('/club', clubsRoutes);
 app.get('*', function(req, res, next){
