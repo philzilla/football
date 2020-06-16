@@ -9,7 +9,7 @@ exports.getAdminPage = (req, res) => {
   // Julien
  // let query = "SELECT * FROM players INNER JOIN club ON club_id = club.id;"
   db.query(query.join(';'), (err, result) => {
-      console.log("result :", result)
+    //  console.log("result :", result)
       if (err) {
           res.redirect('/');
       }

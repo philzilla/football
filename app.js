@@ -3,6 +3,8 @@ const fileUpload = require('express-fileupload');
 const mysql = require('mysql');
 const path = require('path');
 const app = express();
+const session = require('express-session');
+
 const port = 3500;
 
 // Middleware
@@ -14,6 +16,15 @@ app.set('port', process.env.port || port);
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileUpload());
+
+// Express-session
+app.use(session({
+    secret: 'shhuuuuut',
+    resave: false,
+    saveUninitialized: true,
+    name: 'biscuit',
+   // cookie: { maxAge: 60000 }
+  }))
 
 // MySQL
 const db = mysql.createConnection ({

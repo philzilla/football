@@ -1,12 +1,19 @@
 const bcrypt = require("bcrypt");
 
-exports.registerPage = (req, res) => {
-  res.render('auth/register.ejs', {
-      title: "S'inscrire",
+// Get
+exports.loginPage = (req, res) => {
+  res.render('auth/login', {
+    title: "Page de connexion",
   });
 };
 
+exports.registerPage = (req, res) => {
+  res.render('auth/register', {
+    title: "S'inscrire",
+  });
+};
 
+// Post
 exports.register = (req, res) => {
 
   let firstname = req.body.firstname;
@@ -51,7 +58,53 @@ exports.register = (req, res) => {
       );
     }
   })
-
-
-
 }
+
+// Login
+
+exports.login = (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  db.query('SELECT * FROM users WHERE email= ?', [email], (err, result) => {
+
+    if (err || result.length === 0) {   
+      console.log("result :", result);
+         
+      return res.status(401).json({
+        error: `Vous n'êtes pas inscrit`
+      });
+    } else {
+
+      bcrypt.compare(password, result[0].password, (err, success) => {
+        if (err) {
+          return res.status(401).json({
+            error: `Bcrypt Auth failed`
+          });
+        }
+        if (success) {
+
+          db.query('SELECT * FROM users WHERE email = ? AND password = ?', [email, result[0].password], function (err, results) {
+
+            if (results.length) {
+              req.session.loggedin = true;
+              req.session.firstname = result[0].firstname;
+              req.session.userId = result[0].id;
+
+
+              res.redirect('/admin/'
+              );
+
+              console.log("req.session :", req.session)
+              
+            } else {
+              res.send('Email ou mot de passe incorrect !');
+            }
+          });
+        } else {
+          res.send('Ajouter un email ou un mot de passe !');
+        }
+      })
+    }
+  })
+};
