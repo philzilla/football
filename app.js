@@ -23,7 +23,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     name: 'biscuit',
-   // cookie: { maxAge: 60000 }
+    cookie: { maxAge: 60000 }
   }))
 
 // MySQL

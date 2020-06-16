@@ -2,6 +2,7 @@ exports.getAdminPage = (req, res) => {
   let query = [
       "SELECT * FROM players ORDER BY id ASC",
       "SELECT * FROM users ORDER BY id ASC"
+    
     ]
 
 
