@@ -46,6 +46,11 @@ const playersRoutes = require('./routes/player.route');
 const clubsRoutes = require('./routes/club.route');
 const homeRoutes = require('./routes/home');
 
+
+// Middleware
+const auth = require("./middleware/auth.middleware")
+
+
 // Admin
 const adminRoutes = require('./routes/admin.route');
 
@@ -55,7 +60,7 @@ const authRoutes = require('./routes/auth.route');
 app.use('/', homeRoutes);
 
 // Admin
-app.use('/admin',  adminRoutes);
+app.use('/admin', auth,  adminRoutes);
 
 // Authentification
 app.use('/auth',  authRoutes);
