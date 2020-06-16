@@ -38,12 +38,16 @@ const homeRoutes = require('./routes/home');
 // Admin
 const adminRoutes = require('./routes/admin.route');
 
+const authRoutes = require('./routes/auth.route');
 
 // Front
 app.use('/', homeRoutes);
 
 // Admin
 app.use('/admin',  adminRoutes);
+
+// Authentification
+app.use('/auth',  authRoutes);
 
 app.use('/players', playersRoutes);
 app.use('/club', clubsRoutes);
