@@ -1,11 +1,10 @@
+const bcrypt = require("bcrypt");
+
 exports.registerPage = (req, res) => {
   res.render('auth/register.ejs', {
       title: "S'inscrire",
   });
 };
-
-
-
 
 
 exports.register = (req, res) => {
@@ -23,12 +22,11 @@ exports.register = (req, res) => {
     }
     if (result.length > 0) {
       message = "Le compte existe déjà";
-      res.render("add-user.ejs", {
+      res.redirect("auth/register", {
         message,
         title: "Ajouter un utilisateur",
       });
     } else {
-
 
       bcrypt.hash(password, 10, function (err, hash) {
 
