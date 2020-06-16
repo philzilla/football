@@ -385,8 +385,12 @@
                   <div class="kode-section-title"> <h2>Top Player</h2> </div>
   
                     <div class="owl-carousel-team owl-theme kode-team-list next-prev-style">
+
+
+                      <% players.forEach((player, index) => { %>
+
                       <div class="item">
-                        <figure><a href="#" class="kode-team-thumb"><img src="extra-images/player-1.jpg" alt=""></a>
+                        <figure><a href="#" class="kode-team-thumb"><img src="/assets/img/<%= player.image %> alt=""></a>
                           <figcaption>
                             <ul class="kode-team-network">
                               <li><a href="#" class="fa fa-facebook"></a></li>
@@ -394,53 +398,15 @@
                               <li><a href="#" class="fa fa-linkedin"></a></li>
                             </ul>
                             <div class="clearfix"></div>
-                            <h2><a href="#">Sergio Ramos</a></h2>
+                            <h2><a href="#"><%= player.firstname %> <%= player.lastname %></a></h2>
                             <a href="#" class="kode-modren-btn thbg-colortwo">View Detail</a>
                           </figcaption>
                         </figure>
                       </div>
-                      <div class="item">
-                        <figure><a href="#" class="kode-team-thumb"><img src="extra-images/player-2.jpg" alt=""></a>
-                          <figcaption>
-                            <ul class="kode-team-network">
-                              <li><a href="#" class="fa fa-facebook"></a></li>
-                              <li><a href="#" class="fa fa-twitter"></a></li>
-                              <li><a href="#" class="fa fa-linkedin"></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <h2><a href="#">Wayne Rooney</a></h2>
-                            <a href="#" class="kode-modren-btn thbg-colortwo">Vew Detail</a>
-                          </figcaption>
-                        </figure>
-                      </div>
-                      <div class="item">
-                        <figure><a href="#" class="kode-team-thumb"><img src="extra-images/player-3.jpg" alt=""></a>
-                          <figcaption>
-                            <ul class="kode-team-network">
-                              <li><a href="#" class="fa fa-facebook"></a></li>
-                              <li><a href="#" class="fa fa-twitter"></a></li>
-                              <li><a href="#" class="fa fa-linkedin"></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <h2><a href="#">Iker Casillas</a></h2>
-                            <a href="#" class="kode-modren-btn thbg-colortwo">Vew Detail</a>
-                          </figcaption>
-                        </figure>
-                      </div>
-                      <div class="item">
-                        <figure><a href="#" class="kode-team-thumb"><img src="extra-images/player-4.jpg" alt=""></a>
-                          <figcaption>
-                            <ul class="kode-team-network">
-                              <li><a href="#" class="fa fa-facebook"></a></li>
-                              <li><a href="#" class="fa fa-twitter"></a></li>
-                              <li><a href="#" class="fa fa-linkedin"></a></li>
-                            </ul>
-                            <div class="clearfix"></div>
-                            <h2><a href="#">Sergio Ramos</a></h2>
-                            <a href="#" class="kode-modren-btn thbg-colortwo">Vew Detail</a>
-                          </figcaption>
-                        </figure>
-                      </div>
+                      <% }) %>
+
+                     
+                      
                     </div>
   
                 </div>

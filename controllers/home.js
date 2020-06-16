@@ -1,5 +1,6 @@
 exports.getHomePage = (req, res) => {
-    let query = "SELECT players.*, club.name, club.country FROM players INNER JOIN club ON club_id = club.id" 
+    let query = "SELECT * FROM players"
+ ///   let query = "SELECT players.*, club.name, club.country FROM players INNER JOIN club ON club_id = club.id" 
 
     // Julien
    // let query = "SELECT * FROM players INNER JOIN club ON club_id = club.id;"
