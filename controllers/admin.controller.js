@@ -2,27 +2,24 @@ exports.getAdminPage = (req, res) => {
   let query = [
       "SELECT * FROM players ORDER BY id ASC",
       "SELECT * FROM users ORDER BY id ASC"
-    
     ]
-
-
-
   // Julien
- // let query = "SELECT * FROM players INNER JOIN club ON club_id = club.id;"
+  // let query = "SELECT * FROM players INNER JOIN club ON club_id = club.id;"
   db.query(query.join(';'), (err, result) => {
     //  console.log("result :", result)
       if (err) {
           res.redirect('/');
       }
       res.render('admin/dashboard', {
-          
+
           title: "Bienvenue",
           players: result[0],
           users: result[1],
-
+          firstname: req.session.firstname,
+          breadcrumb: "Tableau de bord"
       });
   });
-
+  
 
   /*
   npm install async
